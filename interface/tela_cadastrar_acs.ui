@@ -304,17 +304,33 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>20</y>
+            <width>191</width>
+            <height>17</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: #4285f4;</string>
+          </property>
+          <property name="text">
+           <string>Home / UBS / Adicionar ACS</string>
+          </property>
+         </widget>
          <widget class="QFrame" name="frame_6">
           <property name="geometry">
            <rect>
             <x>30</x>
-            <y>100</y>
-            <width>131</width>
-            <height>80</height>
+            <y>70</y>
+            <width>441</width>
+            <height>181</height>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(186, 189, 182);
+           <string notr="true">border: 1px solid #000;
 border-radius: 5px;</string>
           </property>
           <property name="frameShape">
@@ -323,107 +339,50 @@ border-radius: 5px;</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="label_11">
+          <widget class="QLineEdit" name="lineEdit">
            <property name="geometry">
             <rect>
-             <x>20</x>
-             <y>30</y>
-             <width>91</width>
-             <height>17</height>
+             <x>70</x>
+             <y>40</y>
+             <width>291</width>
+             <height>25</height>
             </rect>
            </property>
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: #FFF;</string>
-           </property>
-           <property name="text">
-            <string>15 Vacinas</string>
+           <property name="placeholderText">
+            <string>Nome</string>
            </property>
           </widget>
-         </widget>
-         <widget class="QFrame" name="frame_7">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>100</y>
-            <width>141</width>
-            <height>80</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(186, 189, 182);
-border-radius: 5px;</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_12">
+          <widget class="QLineEdit" name="lineEdit_2">
            <property name="geometry">
             <rect>
-             <x>10</x>
-             <y>30</y>
-             <width>131</width>
-             <height>17</height>
+             <x>70</x>
+             <y>80</y>
+             <width>291</width>
+             <height>25</height>
             </rect>
            </property>
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: #FFF;</string>
-           </property>
            <property name="text">
-            <string>10 Imunizados</string>
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Código</string>
            </property>
           </widget>
-         </widget>
-         <widget class="QFrame" name="frame_8">
-          <property name="geometry">
-           <rect>
-            <x>340</x>
-            <y>100</y>
-            <width>141</width>
-            <height>80</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(186, 189, 182);
-border-radius: 5px;</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QLabel" name="label_13">
+          <widget class="QPushButton" name="pushButton">
            <property name="geometry">
             <rect>
-             <x>20</x>
-             <y>31</y>
-             <width>111</width>
-             <height>16</height>
+             <x>148</x>
+             <y>120</y>
+             <width>121</width>
+             <height>25</height>
             </rect>
            </property>
-           <property name="font">
-            <font>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
            <property name="styleSheet">
-            <string notr="true">color: #FFF;</string>
+            <string notr="true">background-color: #4285F4;
+color: #FFF;</string>
            </property>
            <property name="text">
-            <string>2 Agendados</string>
+            <string>Cadastrar</string>
            </property>
           </widget>
          </widget>
