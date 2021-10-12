@@ -2,8 +2,8 @@
 ## Sistema de Vacinação - COVID-19
 
 Colaboradores:
-Vitor Santos
-Wendel Nunes
-Humberto Júnior
-Eva Luana
+1. Vitor Santos
+2. Wendel Nunes
+3. Humberto Júnior
+4. Eva Luana
 	
