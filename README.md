@@ -6,10 +6,10 @@ O SINFOR foi criado em python3.9 e sua interface feita com a biblioteca pyQt5. O
 
 
 Colaboradores:
-1. Vitor Santos
-2. Wendel Nunes
-3. Humberto Júnior
-4. Eva Luana
+1. [Vitor Santos](https://github.com/viktorsht)
+2. [Wendel Nunes](https://github.com/WendelSantosNunes)
+3. [Humberto Júnior](https://github.com/1bertojunior)
+4. [Eva Luana](https://github.com/evalasilva)
 
 ### Observações:
 >O sofware foi criado durante a disciplina de Engenharia de Sofware, ministrada no curso de Sistema de Informação na Universidade Federal do Piauí.
@@ -27,6 +27,22 @@ Colaboradores:
 ### Instalação Python3 
 1. Windows: <https://www.python.org/downloads/>
 2.Linux Debian e derivados
-> $ sudo apt-get install python3
-### Instalação pyQt5 - <https://pypi.org/project/PyQt5/>
+
+	~~~ Bash
+	$ sudo apt-get install python3
+	~~~
+
+### Instalação pyQt5 
+1. <https://pypi.org/project/PyQt5/>
+
+## Executar o programa:
+
+1. Clone o repositório em sua máquina utilizando o comando git clone e logo após, execute o arquivo main.py.
+
+	~~~ Git
+	git clone https://github.com/viktorsht/SINFOR.git
+ 	~~~
+	~~~ Bash/Prompt
+	python3 main.py
+ 	~~~
 	
