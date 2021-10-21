@@ -25,7 +25,7 @@ Colaboradores:
 ## Instalação:
 
 ### Instalação Python3 
-1. Windows: <https://www.python.org/downloads/>
+1. Windows: [Download](https://www.python.org/downloads/)
 2.Linux Debian e derivados
 
 	~~~ Bash
