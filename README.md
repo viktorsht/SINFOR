@@ -19,8 +19,10 @@ Colaboradores:
 ## Requisitos:
 
 1. [python3](https://www.python.org/downloads/)
-2. [pip](https://pip.pypa.io/en/stable/installation/)
-3. [pyQt5](https://pypi.org/project/PyQt5/)
+2. [pyQt5](https://pypi.org/project/PyQt5/)
+
+### Observação: 
+> Será necessário a instalação do [pip](https://pip.pypa.io/en/stable/installation/) para a instalação do [pyQt5](https://pypi.org/project/PyQt5/).
 
 ## Instalação:
 
