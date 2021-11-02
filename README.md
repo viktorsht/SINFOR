@@ -35,7 +35,16 @@ Colaboradores:
 	~~~
 
 ### Instalação pyQt5 
-1. <https://pypi.org/project/PyQt5/>
+1. [pyQt5](https://pypi.org/project/PyQt5/)
+ > Para realizar a instalação o [pyQt5](https://pypi.org/project/PyQt5/) é necessário a instalação do [pip](https://pypi.org/project/pip/)
+ 1. Instalação do PIP - LINUX
+ 
+ 	~~~ Base Debian
+		sudo  apt-get install python-pip
+	~~~
+	~~~ Base Red Hat/ OpenSUSe
+		sudo  yum install python-pip
+	~~~
 
 ## Executar o programa:
 
