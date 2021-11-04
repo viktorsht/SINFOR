@@ -57,7 +57,7 @@ border-radius: 5px;</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="email">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -74,7 +74,7 @@ border-radius: 5px;</string>
       <string>E-mail</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="senha">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -91,7 +91,7 @@ border-radius: 5px;</string>
       <string>Senha</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="btn_login">
      <property name="geometry">
       <rect>
        <x>50</x>

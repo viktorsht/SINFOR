@@ -55,7 +55,7 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>71</width>
+         <width>67</width>
          <height>17</height>
         </rect>
        </property>
@@ -96,7 +96,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>90</y>
+         <y>100</y>
          <width>51</width>
          <height>25</height>
         </rect>
@@ -121,7 +121,7 @@ color: #fff;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>130</y>
+         <y>140</y>
          <width>41</width>
          <height>25</height>
         </rect>
@@ -142,11 +142,36 @@ color: #fff;</string>
         <string>UBS</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="btn_comunitario">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>340</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border:none;
+color: #fff;</string>
+       </property>
+       <property name="text">
+        <string>Comunitário</string>
+       </property>
+      </widget>
       <widget class="QPushButton" name="btn_acs">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>170</y>
+         <y>180</y>
          <width>41</width>
          <height>25</height>
         </rect>
@@ -177,7 +202,7 @@ color: #fff;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>290</y>
+         <y>300</y>
          <width>91</width>
          <height>25</height>
         </rect>
@@ -198,36 +223,11 @@ color: #fff;</string>
         <string>Laboratório</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_vacina">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>250</y>
-         <width>51</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>13</pointsize>
-        </font>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border:none;
-color: #fff;</string>
-       </property>
-       <property name="text">
-        <string>Vacina</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="btn_lote">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>210</y>
+         <y>220</y>
          <width>41</width>
          <height>25</height>
         </rect>
@@ -248,12 +248,12 @@ color: #fff;</string>
         <string>Lote</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_comunitario">
+      <widget class="QPushButton" name="btn_vacina">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>330</y>
-         <width>101</width>
+         <y>260</y>
+         <width>51</width>
          <height>25</height>
         </rect>
        </property>
@@ -270,7 +270,7 @@ color: #fff;</string>
 color: #fff;</string>
        </property>
        <property name="text">
-        <string>Comunitário</string>
+        <string>Vacina</string>
        </property>
       </widget>
      </widget>
@@ -351,7 +351,7 @@ color: #fff;</string>
            <string notr="true">color: #4285f4;</string>
           </property>
           <property name="text">
-           <string>Home / ACS </string>
+           <string>Home / Comunitário </string>
           </property>
          </widget>
          <widget class="QPushButton" name="btn_adicionar">
@@ -384,7 +384,7 @@ color: #FFF;</string>
            </rect>
           </property>
           <property name="rowCount">
-           <number>3</number>
+           <number>1</number>
           </property>
           <attribute name="horizontalHeaderCascadingSectionResizes">
            <bool>false</bool>
@@ -421,16 +421,6 @@ color: #FFF;</string>
             <string>1</string>
            </property>
           </row>
-          <row>
-           <property name="text">
-            <string>2</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>3</string>
-           </property>
-          </row>
           <column>
            <property name="text">
             <string>ID</string>
@@ -457,7 +447,79 @@ color: #FFF;</string>
           </column>
           <column>
            <property name="text">
-            <string>CÓDIGO</string>
+            <string>CPF</string>
+           </property>
+           <property name="background">
+            <color>
+             <red>211</red>
+             <green>215</green>
+             <blue>207</blue>
+            </color>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>SUS</string>
+           </property>
+           <property name="background">
+            <color>
+             <red>211</red>
+             <green>215</green>
+             <blue>207</blue>
+            </color>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>1º DOSE</string>
+           </property>
+           <property name="background">
+            <color>
+             <red>211</red>
+             <green>215</green>
+             <blue>207</blue>
+            </color>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>2º DOSE</string>
+           </property>
+           <property name="background">
+            <color>
+             <red>211</red>
+             <green>215</green>
+             <blue>207</blue>
+            </color>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>DATA 1º DOSE</string>
+           </property>
+           <property name="background">
+            <color>
+             <red>211</red>
+             <green>215</green>
+             <blue>207</blue>
+            </color>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>DATA 2º DOSE</string>
+           </property>
+           <property name="background">
+            <color>
+             <red>211</red>
+             <green>215</green>
+             <blue>207</blue>
+            </color>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>VACINA</string>
            </property>
            <property name="background">
             <color>
@@ -474,42 +536,42 @@ color: #FFF;</string>
           </item>
           <item row="0" column="1">
            <property name="text">
-            <string>Impueiras</string>
+            <string>Wendel</string>
            </property>
           </item>
           <item row="0" column="2">
            <property name="text">
-            <string>12</string>
+            <string>1111111111</string>
            </property>
           </item>
-          <item row="1" column="0">
+          <item row="0" column="3">
            <property name="text">
-            <string>2</string>
+            <string>123456</string>
            </property>
           </item>
-          <item row="1" column="1">
+          <item row="0" column="4">
            <property name="text">
-            <string>Vicente Baldino</string>
+            <string>SIM</string>
            </property>
           </item>
-          <item row="1" column="2">
+          <item row="0" column="5">
            <property name="text">
-            <string>47</string>
+            <string>Não</string>
            </property>
           </item>
-          <item row="2" column="0">
+          <item row="0" column="6">
            <property name="text">
-            <string>3</string>
+            <string>20/09/2021</string>
            </property>
           </item>
-          <item row="2" column="1">
+          <item row="0" column="7">
            <property name="text">
-            <string>Paroquial</string>
+            <string>20/12/2021</string>
            </property>
           </item>
-          <item row="2" column="2">
+          <item row="0" column="8">
            <property name="text">
-            <string>55</string>
+            <string>PFIZER</string>
            </property>
           </item>
          </widget>

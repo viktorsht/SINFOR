@@ -4,31 +4,36 @@ from servidor import Servidor
 from loteVacina import LoteVacina
 from datetime import date
 
+
 class UBS:
 
     def __init__(self):
         self._servidor = {}
-        self._comunitario = {}
+        self._comunitario = {'1': Comunitario(
+            'wendel', '1', '27/10/1999', '0000')}
         self._vacina_lab = {}
         self._lote_vacina = {}
         self._vacinados_1dose = {}
         self._vacinados_2dose = {}
         self._lista_prioridade = []
 
-    def add_comunitario(self, nome, cpf, nasc, sus, condicao = None):
+    def add_comunitario(self, nome, cpf, nasc, sus, condicao=None):
         if cpf not in self._comunitario:
-            self._comunitario[cpf] = Comunitario(nome, cpf, nasc, sus, condicao)
+            self._comunitario[cpf] = Comunitario(
+                nome, cpf, nasc, sus, condicao)
             print('Adicionado com sucesso!')
 
-    def add_servidor(self, nome, cpf, nasc, sus, ocupacao, alocacao, condicao = None):
+    def add_servidor(self, nome, cpf, nasc, sus, ocupacao, alocacao, condicao=None):
         if cpf not in self._servidor:
-            self._servidor[cpf] = Servidor(nome, cpf, nasc, sus, ocupacao, alocacao, condicao)
+            self._servidor[cpf] = Servidor(
+                nome, cpf, nasc, sus, ocupacao, alocacao, condicao)
             print('Adicionado com sucesso!')
 
     def add_vacina_lab(self, nome, lab, reforco=0, data_ref_min=0,  data_ref_max=0):
         try:
             if nome not in self._vacina_lab:
-                self._vacina_lab[nome] = VacinaLab(nome, lab, reforco, data_ref_min, data_ref_max)
+                self._vacina_lab[nome] = VacinaLab(
+                    nome, lab, reforco, data_ref_min, data_ref_max)
                 print('Adicionada com sucesso!')
         except:
             print('Esta vacina já consta em nossos dados!')
@@ -37,7 +42,8 @@ class UBS:
         try:
             if qtd > 0:
                 if nome in self._vacina_lab:
-                    self._lote_vacina[lote] = LoteVacina(nome, lote, fabricacao, validade, qtd)
+                    self._lote_vacina[lote] = LoteVacina(
+                        nome, lote, fabricacao, validade, qtd)
                     self._vacina_lab[nome]._qtd += self._lote_vacina[lote]._qtd
                     print('Adicionado com sucesso!')
 
@@ -104,16 +110,18 @@ class UBS:
                     self._vacinados_2dose[cpf] = self._comunitario[cpf]
                     print('Vacinado cadastrado com sucesso!')
                 else:
-                    print('Pessoa não autorizada ... Verifique os dados e tente novamente!')
+                    print(
+                        'Pessoa não autorizada ... Verifique os dados e tente novamente!')
             elif cpf in self._servidor:
-                if  self._servidor[cpf].autoriza_vacina2(min, max):
+                if self._servidor[cpf].autoriza_vacina2(min, max):
                     self._comunitario[cpf]._2dose = 1
                     self._comunitario[cpf]._2dose = hj
                     self._lote_vacina[lote]._qtd -= 1
                     self._vacinados_2dose[cpf] = self._comunitario[cpf]
                     print('Vacinado cadastrado com sucesso!')
                 else:
-                    print('Pessoa não autorizada ... Verifique os dados e tente novamente!')
+                    print(
+                        'Pessoa não autorizada ... Verifique os dados e tente novamente!')
         else:
             print('Vacina informada não necessita de reforço!')
 
@@ -135,7 +143,7 @@ class UBS:
 
     def imprimir_relatorio_1dose(self):
         hj = date.today()
-        print('\tVacinados com a 1ª dose | data: ',hj)
+        print('\tVacinados com a 1ª dose | data: ', hj)
         for key, values in self._vacinados_1dose.items():
             print('Nome: ', self._vacinados_1dose[key]._nome)
             print('CPF: ', self._vacinados_1dose[key]._cpf)
@@ -181,7 +189,7 @@ class UBS:
                 return True
         return False
 
-    def remover_lote(self,lote):
+    def remover_lote(self, lote):
         if lote in self._lote_vacina:
             self._lote_vacina.pop(lote)
             print('Removido com sucesso!')
