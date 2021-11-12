@@ -1,2 +1,3 @@
 credentials.py
 db.sql
+__pycache__
