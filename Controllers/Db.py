@@ -54,10 +54,11 @@ class DB():
         result = None
 
         try:
-            
+            print("TESTE")
             if self.conn and query != "":
                 cursor = self.conn.cursor()
                 self.result = cursor.execute(query, tupla)
+                # print("RESULT = ",self.result)
                 self.commit()
                 result = True
 

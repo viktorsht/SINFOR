@@ -184,7 +184,7 @@ class Main(QMainWindow, Ui_Main):
 
         self.tela(self.t_cad_ubs)
         nome = self.t_cad_ubs.nome.text()
-        cod = int(self.t_cad_ubs.codigo.text())
+        cod = self.t_cad_ubs.codigo.text()
 
         if(nome != '' and cod != ''):
             if self.core.cadastrar_ubs(cod, nome):
