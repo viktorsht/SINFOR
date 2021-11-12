@@ -269,49 +269,63 @@ class Main(QMainWindow, Ui_Main):
     # feito
 
     def acs(self):
-        self.core.getListACS()
+        if self.core.getListACS():
+            for item in self.core.result:
+                print(item)
 
         self.QtStack.setCurrentIndex(8)
         self.tela(self.t_acs)
 
     # feito
     def ubs(self):
-        self.core.getListUBS()
+        if self.core.getListUBS():
+            for item in self.core.result:
+                print(item)
+
+
         self.tela(self.t_ubs)
         self.QtStack.setCurrentIndex(10)
     
 
     # feito
     def lote(self):
-        self.core.getListBatchVaccine()
+        if self.core.getListBatchVaccine():
+            for item in self.core.result:
+                print(item)
 
         self.QtStack.setCurrentIndex(9)
         self.tela(self.t_lote)
 
     # feito
     def laboratorio(self):
-        self.core.getListLaboratory()
+        if self.core.getListLaboratory():
+            for item in self.core.result:
+                print(item)
 
         self.QtStack.setCurrentIndex(12)
         self.tela(self.t_laboratorio)
 
     # feito
     def vacina(self):
-        self.core.getListVaccine()
+        if self.core.getListVaccine():
+            for item in self.core.result:
+                print(item)
 
         self.QtStack.setCurrentIndex(11)
         self.tela(self.t_vacina)
 
     # feito
     def comunitario(self):
-        self.core.getListCommunity()
+        if self.core.getListCommunity():
+            for item in self.core.result:
+                print(item)
 
         self.QtStack.setCurrentIndex(6)
         self.tela(self.t_comunitario)
 
     # feito
     def inicio(self):
-        print("teste")
+
         self.QtStack.setCurrentIndex(7)
         self.tela(self.t_dash)
 

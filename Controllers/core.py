@@ -18,6 +18,7 @@ def MD5hash(arg):
 class Core:
     def __init__(self) -> None:
         self.db = DB(_host, _dbname, _username, _password)
+        self.result = []
 
     def login(self,email, password):
         aux = None
@@ -41,6 +42,7 @@ class Core:
     
     def getListUBS(self):
         aux = None
+        self.result = []
         self.db.toConnect()
 
         query = "SELECT id, nome, cod_ubs FROM ubs"
@@ -49,10 +51,8 @@ class Core:
         if result == None:
             aux = False
         else:
-            for c in result:
-                print("ID USER:", c)
+            self.result = result
             aux =  True
-
 
         self.db.disconnect()
 
@@ -61,6 +61,7 @@ class Core:
 
     def getListACS(self):
         aux = None
+        self.result = []
         self.db.toConnect()
 
         query = "SELECT id, nome, cod_ma FROM acs"
@@ -69,10 +70,8 @@ class Core:
         if result == None:
             aux = False
         else:
-            for c in result:
-                print(c)
+            self.result = result
             aux =  True
-
 
         self.db.disconnect()
 
@@ -80,6 +79,7 @@ class Core:
 
     def getListBatchVaccine(self):
         aux = None
+        self.result = []
         self.db.toConnect()
 
         query = '''SELECT l.id, l.lote, v.nome,
@@ -91,10 +91,8 @@ class Core:
         if result == None:
             aux = False
         else:
-            for c in result:
-                print(c)
+            self.result = result
             aux =  True
-
 
         self.db.disconnect()
 
@@ -102,6 +100,7 @@ class Core:
 
     def getListVaccine(self):
         aux = None
+        self.result = []
         self.db.toConnect()
 
         query = '''SELECT v.id, v.nome, v.reforco, l.nome
@@ -112,8 +111,7 @@ class Core:
         if result == None:
             aux = False
         else:
-            for c in result:
-                print(c)
+            self.result = result
             aux =  True
 
 
@@ -124,6 +122,7 @@ class Core:
 
     def getListLaboratory(self):
         aux = None
+        self.result = []
         self.db.toConnect()
 
         query = "SELECT id, nome FROM laboratorio"
@@ -132,8 +131,7 @@ class Core:
         if result == None:
             aux = False
         else:
-            for c in result:
-                print(c)
+            self.result = result
             aux =  True
 
 
@@ -143,6 +141,7 @@ class Core:
 
     def getListCommunity(self):
         aux = None
+        self.result = []
         self.db.toConnect()
 
         query = '''SELECT c.id, c.nome, c.cpf, c.num_sus, c.status_1dose, c.status_2dose,
@@ -155,8 +154,7 @@ class Core:
         if result == None:
             aux = False
         else:
-            for c in result:
-                print(c)
+            self.result = result
             aux =  True
 
 
