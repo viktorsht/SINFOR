@@ -58,6 +58,7 @@ class DB():
             if self.conn and query != "":
                 cursor = self.conn.cursor()
                 self.result = cursor.execute(query, tupla)
+                self.commit()
                 result = True
 
         except:
