@@ -2,7 +2,10 @@
 import hashlib
 
 from Controllers.Db import DB
-from Controllers.credentials import _host, _dbname, _username, _password
+try:
+    from Controllers.credentials import _host, _dbname, _username, _password
+except:
+    print('[!] - CREDENTIALS')
 
 from Controllers.login import Login
 
