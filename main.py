@@ -184,10 +184,10 @@ class Main(QMainWindow, Ui_Main):
 
         self.tela(self.t_cad_ubs)
         nome = self.t_cad_ubs.nome.text()
-        cod = self.t_cad_ubs.codigo.text()
+        cod = int(self.t_cad_ubs.codigo.text())
 
-        if(nome != '' and cod != '' ):
-            if self.core.cadastrar_ubs(cod,nome):
+        if(nome != '' and cod != ''):
+            if self.core.cadastrar_ubs(cod, nome):
                 QMessageBox.information(
                     None, 'Sucesso!', 'Cadastro realizado!!')
                 self.t_cad_ubs.nome.setText('')
@@ -198,7 +198,6 @@ class Main(QMainWindow, Ui_Main):
         else:
             QMessageBox.information(
                 None, 'Atenção!', 'Preencha todos os campos!!')
-
 
     def cadastrar_acs(self):
         self.QtStack.setCurrentIndex(1)
