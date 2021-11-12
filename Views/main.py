@@ -6,23 +6,23 @@ from PyQt5.QtWidgets import QMessageBox, QApplication, QFileDialog, QMainWindow
 from PyQt5.QtCore import QCoreApplication
 
 # Back-End
-# from ubs import UBS
+# from ..Controllers.ubs import *
 
 # Telas
-from Telas.tela_acs import Tela_acs
-from Telas.tela_cadastrar_acs import Tela_cadastrar_acs
-from Telas.tela_cadastrar_comunitario import Tela_cadastrar_comunitario
-from Telas.tela_cadastrar_lote import Tela_cadastrar_lote
-from Telas.tela_cadastrar_ubs import Tela_cadastrar_ubs
-from Telas.tela_cadastrar_vacina import Tela_cadastrar_vacina
-from Telas.tela_cadastrar_laboratorio import Tela_cadastrar_laboratorio
-from Telas.tela_comunitario import Tela_comunitario
-from Telas.tela_laboratorio import Tela_labora
-from Telas.tela_dash import Tela_dash
-from Telas.tela_login import Tela_login
-from Telas.tela_lote import Tela_lote
-from Telas.tela_ubs import Tela_ubs
-from Telas.tela_vacina import Tela_vacina
+from tela_acs import Tela_acs
+from tela_cadastrar_acs import Tela_cadastrar_acs
+from tela_cadastrar_comunitario import Tela_cadastrar_comunitario
+from tela_cadastrar_lote import Tela_cadastrar_lote
+from tela_cadastrar_ubs import Tela_cadastrar_ubs
+from tela_cadastrar_vacina import Tela_cadastrar_vacina
+from tela_cadastrar_laboratorio import Tela_cadastrar_laboratorio
+from tela_comunitario import Tela_comunitario
+from tela_laboratorio import Tela_labora
+from tela_dash import Tela_dash
+from tela_login import Tela_login
+from tela_lote import Tela_lote
+from tela_ubs import Tela_ubs
+from tela_vacina import Tela_vacina
 
 
 class Ui_Main(QtWidgets.QWidget):
@@ -112,7 +112,7 @@ class Main(QMainWindow, Ui_Main):
         super(Main, self).__init__(parent)
         self.setupUi(self)
 
-        self.b = UBS()
+        # self.b = UBS()
 
         self.tela(self.t_dash)
 
