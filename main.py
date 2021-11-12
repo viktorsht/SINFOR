@@ -132,6 +132,7 @@ class Main(QMainWindow, Ui_Main):
         self.t_vacina.btn_adicionar.clicked.connect(self.cadastrar_vacina)
         self.t_laboratorio.btn_adicionar.clicked.connect(
             self.cadastrar_laboratorio)
+        self.logado = ''
 
     def add_ubs(self):
         self.QtStack.setCurrentIndex(4)
@@ -149,7 +150,10 @@ class Main(QMainWindow, Ui_Main):
             if self.core.login(cpf, senha):
                 self.t_login.cpf.setText('')
                 self.t_login.senha.setText('')
-
+                # result =''
+                # query = 'SELECT nivel_de_acesso FROM usu
+                # self.core.connect(query, (), result
+                # self.logado = nível de acesso
                 self.inicio()
             else:
                 QMessageBox.information(
@@ -181,7 +185,6 @@ class Main(QMainWindow, Ui_Main):
         #         None, 'Atenção!', 'Campos em branco!')
 
     def cadastrar_ubs(self):
-
         self.tela(self.t_cad_ubs)
         nome = self.t_cad_ubs.nome.text()
         cod = self.t_cad_ubs.codigo.text()
@@ -198,6 +201,7 @@ class Main(QMainWindow, Ui_Main):
         else:
             QMessageBox.information(
                 None, 'Atenção!', 'Preencha todos os campos!!')
+
 
     def cadastrar_acs(self):
         self.QtStack.setCurrentIndex(1)
@@ -368,6 +372,7 @@ class Main(QMainWindow, Ui_Main):
 
         self.QtStack.setCurrentIndex(7)
         self.tela(self.t_dash)
+
 
     def tela(self, tela):
         tela.btn_ubs.clicked.connect(self.ubs)
