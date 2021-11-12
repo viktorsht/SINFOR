@@ -115,7 +115,7 @@ class Main(QMainWindow, Ui_Main):
         # self.b = UBS()
         self.core = Core()
 
-        self.tela(self.t_dash)
+        # self.tela(self.t_dash)
 
         # login
         self.t_login.btn_login.clicked.connect(self.logar)
@@ -143,6 +143,7 @@ class Main(QMainWindow, Ui_Main):
             if self.core.login(cpf, senha):
                 self.t_login.cpf.setText('')
                 self.t_login.senha.setText('')
+                
                 self.inicio()
             else:
               QMessageBox.information(None, 'Atenção!', 'Usuário ou senha incorretos!\nVerifique e tente novamente!') 
@@ -276,9 +277,9 @@ class Main(QMainWindow, Ui_Main):
     # feito
     def ubs(self):
         self.core.getListUBS()
-
-        self.QtStack.setCurrentIndex(10)
         self.tela(self.t_ubs)
+        self.QtStack.setCurrentIndex(10)
+    
 
     # feito
     def lote(self):
@@ -310,6 +311,7 @@ class Main(QMainWindow, Ui_Main):
 
     # feito
     def inicio(self):
+        print("teste")
         self.QtStack.setCurrentIndex(7)
         self.tela(self.t_dash)
 
