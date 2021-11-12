@@ -161,3 +161,11 @@ class Core:
         self.db.disconnect()
 
         return aux
+
+    def cadastrar_ubs(self, cod, nome):
+        self.db.toConnect()
+        query = 'INSERT INTO ubs (cod_ma, nome) VALUES (%s %s)'
+        result = self.db.cursor(query,(cod,nome))
+        self.db.disconnect()
+        return result
+

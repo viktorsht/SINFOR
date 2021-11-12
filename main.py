@@ -123,7 +123,8 @@ class Main(QMainWindow, Ui_Main):
         # home
 
         # home-cadastro
-        self.t_ubs.btn_adicionar.clicked.connect(self.cadastrar_ubs)
+
+        self.t_ubs.btn_adicionar.clicked.connect(self.add_ubs)
         self.t_acs.btn_adicionar.clicked.connect(self.cadastrar_acs)
         self.t_comunitario.btn_adicionar.clicked.connect(
             self.cadastrar_comunitario)
@@ -131,6 +132,10 @@ class Main(QMainWindow, Ui_Main):
         self.t_vacina.btn_adicionar.clicked.connect(self.cadastrar_vacina)
         self.t_laboratorio.btn_adicionar.clicked.connect(
             self.cadastrar_laboratorio)
+
+    def add_ubs(self):
+        self.QtStack.setCurrentIndex(4)
+        self.t_cad_ubs.btn_cadastrar.clicked.connect(self.cadastrar_ubs)
 
     def logar(self):
         cpf = self.t_login.cpf.text()
@@ -176,16 +181,24 @@ class Main(QMainWindow, Ui_Main):
         #         None, 'Atenção!', 'Campos em branco!')
 
     def cadastrar_ubs(self):
-        self.QtStack.setCurrentIndex(4)
+
         self.tela(self.t_cad_ubs)
         nome = self.t_cad_ubs.nome.text()
+        cod = self.t_cad_ubs.codigo.text()
 
-        if(nome != ''):
-            pass
-            # Nome não existe no banco ? Se não, adicionar o nome no banco.
+        if(nome != '' and cod != '' ):
+            if self.core.cadastrar_ubs(cod,nome):
+                QMessageBox.information(
+                    None, 'Sucesso!', 'Cadastro realizado!!')
+                self.t_cad_ubs.nome.setText('')
+                self.t_cad_ubs.codigo.setText('')
+            else:
+                QMessageBox.information(
+                    None, 'Atenção!', 'Operação inválida!\nVerifique e tente novamente!')
         else:
             QMessageBox.information(
-                None, 'Atenção!', 'Campo em branco!!')
+                None, 'Atenção!', 'Preencha todos os campos!!')
+
 
     def cadastrar_acs(self):
         self.QtStack.setCurrentIndex(1)
