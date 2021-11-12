@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Tela_cadastrar_ubs(object):
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(643, 480)
@@ -49,7 +49,7 @@ class Tela_cadastrar_ubs(object):
         self.btn_inicio.setFont(font)
         self.btn_inicio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_inicio.setStyleSheet("border:none;\n"
-                                      "color: #fff;")
+"color: #fff;")
         self.btn_inicio.setObjectName("btn_inicio")
         self.btn_lote = QtWidgets.QPushButton(self.frame)
         self.btn_lote.setGeometry(QtCore.QRect(10, 220, 41, 25))
@@ -58,7 +58,7 @@ class Tela_cadastrar_ubs(object):
         self.btn_lote.setFont(font)
         self.btn_lote.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_lote.setStyleSheet("border:none;\n"
-                                    "color: #fff;")
+"color: #fff;")
         self.btn_lote.setObjectName("btn_lote")
         self.btn_ubs = QtWidgets.QPushButton(self.frame)
         self.btn_ubs.setGeometry(QtCore.QRect(10, 140, 41, 25))
@@ -67,7 +67,7 @@ class Tela_cadastrar_ubs(object):
         self.btn_ubs.setFont(font)
         self.btn_ubs.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_ubs.setStyleSheet("border:none;\n"
-                                   "color: #fff;")
+"color: #fff;")
         self.btn_ubs.setObjectName("btn_ubs")
         self.btn_acs = QtWidgets.QPushButton(self.frame)
         self.btn_acs.setGeometry(QtCore.QRect(10, 180, 41, 25))
@@ -77,7 +77,7 @@ class Tela_cadastrar_ubs(object):
         self.btn_acs.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_acs.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.btn_acs.setStyleSheet("border:none;\n"
-                                   "color: #fff;")
+"color: #fff;")
         self.btn_acs.setCheckable(False)
         self.btn_acs.setObjectName("btn_acs")
         self.btn_laboratorio = QtWidgets.QPushButton(self.frame)
@@ -85,20 +85,18 @@ class Tela_cadastrar_ubs(object):
         font = QtGui.QFont()
         font.setPointSize(13)
         self.btn_laboratorio.setFont(font)
-        self.btn_laboratorio.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_laboratorio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_laboratorio.setStyleSheet("border:none;\n"
-                                           "color: #fff;")
+"color: #fff;")
         self.btn_laboratorio.setObjectName("btn_laboratorio")
         self.btn_comunitario = QtWidgets.QPushButton(self.frame)
         self.btn_comunitario.setGeometry(QtCore.QRect(10, 340, 101, 25))
         font = QtGui.QFont()
         font.setPointSize(13)
         self.btn_comunitario.setFont(font)
-        self.btn_comunitario.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_comunitario.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_comunitario.setStyleSheet("border:none;\n"
-                                           "color: #fff;")
+"color: #fff;")
         self.btn_comunitario.setObjectName("btn_comunitario")
         self.btn_vacina = QtWidgets.QPushButton(self.frame)
         self.btn_vacina.setGeometry(QtCore.QRect(10, 260, 51, 25))
@@ -107,7 +105,7 @@ class Tela_cadastrar_ubs(object):
         self.btn_vacina.setFont(font)
         self.btn_vacina.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_vacina.setStyleSheet("border:none;\n"
-                                      "color: #fff;")
+"color: #fff;")
         self.btn_vacina.setObjectName("btn_vacina")
         self.horizontalLayout.addWidget(self.frame)
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
@@ -139,20 +137,22 @@ class Tela_cadastrar_ubs(object):
         self.frame_6 = QtWidgets.QFrame(self.frame_4)
         self.frame_6.setGeometry(QtCore.QRect(30, 70, 441, 181))
         self.frame_6.setStyleSheet("border: 1px solid #000;\n"
-                                   "border-radius: 5px;")
+"border-radius: 5px;")
         self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_6.setObjectName("frame_6")
         self.nome = QtWidgets.QLineEdit(self.frame_6)
-        self.nome.setGeometry(QtCore.QRect(70, 60, 291, 25))
+        self.nome.setGeometry(QtCore.QRect(70, 90, 291, 25))
         self.nome.setObjectName("nome")
         self.btn_cadastrar = QtWidgets.QPushButton(self.frame_6)
-        self.btn_cadastrar.setGeometry(QtCore.QRect(150, 100, 121, 25))
-        self.btn_cadastrar.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_cadastrar.setGeometry(QtCore.QRect(150, 130, 121, 25))
+        self.btn_cadastrar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_cadastrar.setStyleSheet("background-color: #4285F4;\n"
-                                         "color: #FFF;")
+"color: #FFF;")
         self.btn_cadastrar.setObjectName("btn_cadastrar")
+        self.codigo = QtWidgets.QLineEdit(self.frame_6)
+        self.codigo.setGeometry(QtCore.QRect(70, 50, 291, 25))
+        self.codigo.setObjectName("codigo")
         self.verticalLayout.addWidget(self.frame_4)
         self.frame_5 = QtWidgets.QFrame(self.frame_2)
         self.frame_5.setMaximumSize(QtCore.QSize(16777215, 70))
@@ -182,19 +182,18 @@ class Tela_cadastrar_ubs(object):
         self.btn_laboratorio.setText(_translate("MainWindow", "Laboratório"))
         self.btn_comunitario.setText(_translate("MainWindow", "Comunitário"))
         self.btn_vacina.setText(_translate("MainWindow", "Vacina"))
-        self.label_11.setText(_translate(
-            "MainWindow", "Home / UBS / Adicionar UBS"))
+        self.label_11.setText(_translate("MainWindow", "Home / UBS / Adicionar UBS"))
         self.nome.setPlaceholderText(_translate("MainWindow", "Nome"))
         self.btn_cadastrar.setText(_translate("MainWindow", "Cadastrar"))
-        self.label_10.setText(_translate(
-            "MainWindow", "2021 - SINFOR |  Todos os direitos reservados"))
+        self.codigo.setPlaceholderText(_translate("MainWindow", "Código"))
+        self.label_10.setText(_translate("MainWindow", "2021 - SINFOR |  Todos os direitos reservados"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Tela_cadastrar_ubs()
+    ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
