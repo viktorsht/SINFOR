@@ -259,6 +259,7 @@ class Main(QMainWindow, Ui_Main):
     # feito
     def ubs(self):
         self.QtStack.setCurrentIndex(10)
+
         self.tela(self.t_ubs)
 
     # feito

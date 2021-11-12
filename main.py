@@ -138,18 +138,19 @@ class Main(QMainWindow, Ui_Main):
 
         if(cpf != '' and senha != ''):
 
-            query = "SELECT id FROM usuarios WHERE cpf = '" + cpf + "' AND senha '" + senha + "'"
-            
+            query = "SELECT id FROM usuarios WHERE cpf = '" + \
+                cpf + "' AND senha '" + senha + "'"
+
             if self.core.login(cpf, senha):
                 self.t_login.cpf.setText('')
                 self.t_login.senha.setText('')
-                
+
                 self.inicio()
             else:
-              QMessageBox.information(None, 'Atenção!', 'Usuário ou senha incorretos!\nVerifique e tente novamente!') 
+                QMessageBox.information(
+                    None, 'Atenção!', 'Usuário ou senha incorretos!\nVerifique e tente novamente!')
         else:
             QMessageBox.information(None, 'Atenção!', 'Campos em branco!')
-
 
         #     if self.b.existe_comunitario(cpf):
         #         if self.b._comunitario[cpf]._senha == senha:
@@ -178,7 +179,6 @@ class Main(QMainWindow, Ui_Main):
         self.QtStack.setCurrentIndex(4)
         self.tela(self.t_cad_ubs)
         nome = self.t_cad_ubs.nome.text()
-
 
         if(nome != ''):
             pass
@@ -270,8 +270,13 @@ class Main(QMainWindow, Ui_Main):
 
     def acs(self):
         if self.core.getListACS():
-            for item in self.core.result:
-                print(item)
+            tela = self.t_acs
+            tamanho = len(self.core.result)
+            tela.tableWidget.setRowCount(tamanho)
+            for i, item in enumerate(self.core.result):
+                for j in range(0, 3):
+                    tela.tableWidget.setItem(
+                        i, j, QtWidgets.QTableWidgetItem(str(item[j])))
 
         self.QtStack.setCurrentIndex(8)
         self.tela(self.t_acs)
@@ -279,19 +284,27 @@ class Main(QMainWindow, Ui_Main):
     # feito
     def ubs(self):
         if self.core.getListUBS():
-            for item in self.core.result:
-                print(item)
-
-
+            tela = self.t_ubs
+            tamanho = len(self.core.result)
+            tela.tableWidget.setRowCount(tamanho)
+            for i, item in enumerate(self.core.result):
+                for j in range(0, 3):
+                    tela.tableWidget.setItem(
+                        i, j, QtWidgets.QTableWidgetItem(str(item[j])))
         self.tela(self.t_ubs)
         self.QtStack.setCurrentIndex(10)
-    
 
     # feito
+
     def lote(self):
         if self.core.getListBatchVaccine():
-            for item in self.core.result:
-                print(item)
+            tela = self.t_lote
+            tamanho = len(self.core.result)
+            tela.tableWidget.setRowCount(tamanho)
+            for i, item in enumerate(self.core.result):
+                for j in range(0, 5):
+                    tela.tableWidget.setItem(
+                        i, j, QtWidgets.QTableWidgetItem(str(item[j])))
 
         self.QtStack.setCurrentIndex(9)
         self.tela(self.t_lote)
@@ -299,8 +312,13 @@ class Main(QMainWindow, Ui_Main):
     # feito
     def laboratorio(self):
         if self.core.getListLaboratory():
-            for item in self.core.result:
-                print(item)
+            tela = self.t_laboratorio
+            tamanho = len(self.core.result)
+            tela.tableWidget.setRowCount(tamanho)
+            for i, item in enumerate(self.core.result):
+                for j in range(0, 2):
+                    tela.tableWidget.setItem(
+                        i, j, QtWidgets.QTableWidgetItem(str(item[j])))
 
         self.QtStack.setCurrentIndex(12)
         self.tela(self.t_laboratorio)
@@ -308,8 +326,13 @@ class Main(QMainWindow, Ui_Main):
     # feito
     def vacina(self):
         if self.core.getListVaccine():
-            for item in self.core.result:
-                print(item)
+            tela = self.t_vacina
+            tamanho = len(self.core.result)
+            tela.tableWidget.setRowCount(tamanho)
+            for i, item in enumerate(self.core.result):
+                for j in range(0, 4):
+                    tela.tableWidget.setItem(
+                        i, j, QtWidgets.QTableWidgetItem(str(item[j])))
 
         self.QtStack.setCurrentIndex(11)
         self.tela(self.t_vacina)
@@ -317,8 +340,13 @@ class Main(QMainWindow, Ui_Main):
     # feito
     def comunitario(self):
         if self.core.getListCommunity():
-            for item in self.core.result:
-                print(item)
+            tela = self.t_comunitario
+            tamanho = len(self.core.result)
+            tela.tableWidget.setRowCount(tamanho)
+            for i, item in enumerate(self.core.result):
+                for j in range(0, 9):
+                    tela.tableWidget.setItem(
+                        i, j, QtWidgets.QTableWidgetItem(str(item[j])))
 
         self.QtStack.setCurrentIndex(6)
         self.tela(self.t_comunitario)
