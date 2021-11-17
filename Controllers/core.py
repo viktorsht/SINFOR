@@ -1,5 +1,6 @@
 
 import hashlib
+from datetime import datetime
 
 from Controllers.Db import DB
 try:
@@ -22,6 +23,16 @@ class Core:
     def __init__(self) -> None:
         self.db = DB(_host, _dbname, _username, _password)
         self.result = []
+
+    def validarData(self, data = ''):
+        result =  None
+        try:
+            result = datetime.strptime(data, '%Y-%m-%d').date()
+            # result = True
+        except:
+            result = False
+        
+        return result
 
     def login(self,email, password):
         aux = None
@@ -174,6 +185,60 @@ class Core:
         query = 'INSERT INTO ubs (cod_ubs, nome) VALUES (%s, %s)'
         result = self.db.cursor(query, (cod, nome))
 
+        self.db.disconnect()
+        return result
+
+    def cadastrar_acs(self, cod, nome):
+        self.db.toConnect()
+    
+        query = 'INSERT INTO acs (cod_ma, nome) VALUES (%s, %s)'
+        result = self.db.cursor(query, (cod, nome))
+
+        self.db.disconnect()
+        return result
+
+    def cadastrar_lote(self, fk_vacina, lote, fabricacao, validade):
+        self.db.toConnect()
+
+        result = None
+
+        query = 'SELECT id FROM vacina WHERE id =  ' + fk_vacina
+        result = self.db.fetchOne(query)
+
+        if result:
+            query = 'INSERT INTO lote_vacina (fk_vacina, lote, fabricacao, validade) VALUES (%s, %s, %s,%s)'
+            result = self.db.cursor(query, (fk_vacina, lote, fabricacao, validade))
+        else:
+            result = -1 # LOTE NÃO EXISTE
+
+        self.db.disconnect()
+        return result
+
+    def cadastrar_vacina(self, nome, reforco, laboratorio):
+        self.db.toConnect()
+
+        result = None
+
+        query = 'SELECT id FROM laboratorio WHERE id =  ' + laboratorio
+        result = self.db.fetchOne(query)
+
+        if result:
+            query = 'INSERT INTO vacina (nome, reforco, laboratorio) VALUES (%s, %s, %s)'
+            result = self.db.cursor(query, (nome, reforco, laboratorio))
+        else:
+            result = -1 # LABORATORIO NÃO EXISTE
+
+        self.db.disconnect()
+        return result
+
+
+    def cadastrar_laboratorio(self, nome):
+        self.db.toConnect()
+        result = None
+        
+        query = 'INSERT INTO laboratorio (id, nome) VALUES (%s,%s)'
+        result = self.db.cursor(query, ('NULL', nome))
+       
         self.db.disconnect()
         return result
 

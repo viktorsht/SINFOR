@@ -188,8 +188,8 @@ class Tela_cadastrar_acs(object):
         self.btn_vacina.setText(_translate("MainWindow", "Vacina"))
         self.label_11.setText(_translate(
             "MainWindow", "Home / UBS / Adicionar ACS"))
-        self.nome.setPlaceholderText(_translate("MainWindow", "Nome"))
-        self.codigo.setPlaceholderText(_translate("MainWindow", "Código"))
+        self.nome.setPlaceholderText(_translate("MainWindow", "Código"))
+        self.codigo.setPlaceholderText(_translate("MainWindow", "Nome"))
         self.btn_cadastrar.setText(_translate("MainWindow", "Cadastrar"))
         self.label_10.setText(_translate(
             "MainWindow", "2021 - SINFOR |  Todos os direitos reservados"))

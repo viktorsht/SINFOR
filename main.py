@@ -125,28 +125,40 @@ class Main(QMainWindow, Ui_Main):
         # home-cadastro
 
         self.t_ubs.btn_adicionar.clicked.connect(self.add_ubs)
-        self.t_acs.btn_adicionar.clicked.connect(self.cadastrar_acs)
+        self.t_acs.btn_adicionar.clicked.connect(self.add_acs)
         self.t_comunitario.btn_adicionar.clicked.connect(
             self.cadastrar_comunitario)
-        self.t_lote.btn_adicionar.clicked.connect(self.cadastrar_lote)
-        self.t_vacina.btn_adicionar.clicked.connect(self.cadastrar_vacina)
+        self.t_lote.btn_adicionar.clicked.connect(self.add_lote)
+        self.t_vacina.btn_adicionar.clicked.connect(self.add_vacina)
         self.t_laboratorio.btn_adicionar.clicked.connect(
-            self.cadastrar_laboratorio)
+            self.add_laboratorio)
         self.logado = ''
 
     def add_ubs(self):
         self.QtStack.setCurrentIndex(4)
         self.t_cad_ubs.btn_cadastrar.clicked.connect(self.cadastrar_ubs)
+    
+    def add_acs(self):
+        self.QtStack.setCurrentIndex(1)
+        self.t_cad_acs.btn_cadastrar.clicked.connect(self.cadastrar_acs)
+    
+    def add_lote(self):
+        self.QtStack.setCurrentIndex(3)
+        self.t_cad_lote.btn_cadastrar.clicked.connect(self.cadastrar_lote)
+
+    def add_vacina(self):
+        self.QtStack.setCurrentIndex(5)
+        self.t_cad_vacina.btn_cadastrar.clicked.connect(self.cadastrar_vacina)
+    
+    def add_laboratorio(self):
+        self.QtStack.setCurrentIndex(13)
+        self.t_cad_labora.btn_cadastrar.clicked.connect(self.cadastrar_laboratorio)
 
     def logar(self):
         cpf = self.t_login.cpf.text()
         senha = self.t_login.senha.text()
 
         if(cpf != '' and senha != ''):
-
-            query = "SELECT id FROM usuarios WHERE cpf = '" + \
-                cpf + "' AND senha '" + senha + "'"
-
             if self.core.login(cpf, senha):
                 self.t_login.cpf.setText('')
                 self.t_login.senha.setText('')
@@ -160,29 +172,6 @@ class Main(QMainWindow, Ui_Main):
                     None, 'Atenção!', 'Usuário ou senha incorretos!\nVerifique e tente novamente!')
         else:
             QMessageBox.information(None, 'Atenção!', 'Campos em branco!')
-
-        #     if self.b.existe_comunitario(cpf):
-        #         if self.b._comunitario[cpf]._senha == senha:
-        #             self.t_login.cpf.setText('')
-        #             self.t_login.senha.setText('')
-        #             self.inicio()
-        #         else:
-        #             QMessageBox.information(
-        #                 None, 'Atenção!', 'Senha Incorreta!\nVerifique e tente novamente!')
-        #     elif self.b.existe_servidor(cpf):
-        #         if self.b._servidor[cpf]._senha == senha:
-        #             self.t_login.cpf.setText('')
-        #             self.t_login.senha.setText('')
-        #             self.inicio()
-        #         else:
-        #             QMessageBox.information(
-        #                 None, 'Atenção!', 'Senha Incorreta!\nVerifique e tente novamente!')
-        #     else:
-        #         QMessageBox.information(
-        #             None, 'Atenção!', 'Cliente não encontrado!\nVerifique e tente novamente!')
-        # else:
-        #     QMessageBox.information(
-        #         None, 'Atenção!', 'Campos em branco!')
 
     def cadastrar_ubs(self):
         self.tela(self.t_cad_ubs)
@@ -204,13 +193,18 @@ class Main(QMainWindow, Ui_Main):
 
 
     def cadastrar_acs(self):
-        self.QtStack.setCurrentIndex(1)
+        # self.QtStack.setCurrentIndex(1)
         self.tela(self.t_cad_acs)
         nome = self.t_cad_acs.nome.text()
         codigo = self.t_cad_acs.codigo.text()
+
         if(nome != '' and codigo != ''):
-            pass
-            # Nome e código não existe no banco ? Se não, adicionar o nome no banco e código.
+            if self.core.cadastrar_acs(nome, codigo):
+                QMessageBox.information(
+                    None, 'Atenção!', 'Inserido com sucesso!')
+            else: 
+                QMessageBox.information(
+                    None, 'Atenção!', 'Erro ao inserir!')
         else:
             QMessageBox.information(
                 None, 'Atenção!', 'Campo em branco!!')
@@ -249,38 +243,91 @@ class Main(QMainWindow, Ui_Main):
                 None, 'Atenção!', 'Campo em branco!!')
 
     def cadastrar_lote(self):
-        self.QtStack.setCurrentIndex(3)
+        # self.QtStack.setCurrentIndex(3)
         self.tela(self.t_cad_lote)
+
         vacina = self.t_cad_lote.vacina.text()
         lote = self.t_cad_lote.lote.text()
         fabricacao = self.t_cad_lote.fabricacao.text()
         validade = self.t_cad_lote.validade.text()
 
         if(vacina != '' and lote != '' and fabricacao != '' and validade != ''):
-            pass
-            # Nome e código não existe no banco ? Se não, adicionar o nome no banco e código.
+            
+            if not self.core.validarData(validade):
+                QMessageBox.information(
+                    None, 'Atenção!', 'Formato da data validade errada')
+            elif not self.core.validarData(fabricacao):
+                QMessageBox.information(
+                    None, 'Atenção!', 'Formato da data fabricacao errada')
+            else:
+                result  = self.core.cadastrar_lote(vacina, lote, fabricacao, validade)
+                if result == -1:
+                    QMessageBox.information(
+                        None, 'Atenção!', 'Vacina não encontrado!')
+                    
+                elif result:
+                    QMessageBox.information(
+                        None, 'Atenção!', 'Inserido com sucesso!')
+                    self.t_cad_lote.vacina.setText('')
+                    self.t_cad_lote.lote.setText('')
+                    self.t_cad_lote.fabricacao.setText('')
+                    self.t_cad_lote.validade.setText('')
+                else:
+                    QMessageBox.information(
+                        None, 'Atenção!', 'Erro ao inserir!')
         else:
             QMessageBox.information(
                 None, 'Atenção!', 'Campo em branco!!')
 
     def cadastrar_vacina(self):
-        self.QtStack.setCurrentIndex(5)
+        # self.QtStack.setCurrentIndex(5)
         self.tela(self.t_cad_vacina)
         nome = self.t_cad_vacina.nome.text()
         reforco = self.t_cad_vacina.reforco.text()
         laboratorio = self.t_cad_vacina.laboratorio.text()
 
         if(nome != '' and reforco != '' and laboratorio != ''):
-            pass
-            # Nome e código não existe no banco ? Se não, adicionar o nome no banco e código.
+            if int(reforco) >= 15:
+                result  = self.core.cadastrar_vacina(nome, reforco, laboratorio)
+                if result == -1:
+                    QMessageBox.information(
+                        None, 'Atenção!', 'Laboratorio não encontrado!')
+                    
+                elif result:
+                    QMessageBox.information(
+                        None, 'Atenção!', 'Inserido com sucesso!')
+                    self.t_cad_vacina.nome.setText('')
+                    self.t_cad_vacina.reforco.setText('')
+                    self.t_cad_vacina.laboratorio.setText('')                    
+                else:
+                    QMessageBox.information(
+                        None, 'Atenção!', 'Erro ao inserir!')
+            else:
+                QMessageBox.information(
+                None, 'Atenção!', 'Reforço incorreto!')
         else:
             QMessageBox.information(
                 None, 'Atenção!', 'Campo em branco!!')
 
     def cadastrar_laboratorio(self):
-        self.QtStack.setCurrentIndex(13)
+        # self.QtStack.setCurrentIndex(13)
         self.tela(self.t_cad_labora)
         nome = self.t_cad_labora.nome.text()
+
+        if nome != '':
+            result = self.core.cadastrar_laboratorio(nome)
+            print(result)
+            if result:
+                self.t_cad_labora.nome.setText('')
+                QMessageBox.information(
+                    None, 'Atenção!', 'Cadastrado com sucesso!')
+            else:
+                QMessageBox.information(
+                    None, 'Atenção!', 'Erro ao inserir!')
+        else:
+            QMessageBox.information(
+                None, 'Atenção!', 'Campo em branco!!')
+
 
     # feito
 
