@@ -137,11 +137,11 @@ class Main(QMainWindow, Ui_Main):
     def add_ubs(self):
         self.QtStack.setCurrentIndex(4)
         self.t_cad_ubs.btn_cadastrar.clicked.connect(self.cadastrar_ubs)
-    
+
     def add_acs(self):
         self.QtStack.setCurrentIndex(1)
         self.t_cad_acs.btn_cadastrar.clicked.connect(self.cadastrar_acs)
-    
+
     def add_lote(self):
         self.QtStack.setCurrentIndex(3)
         self.t_cad_lote.btn_cadastrar.clicked.connect(self.cadastrar_lote)
@@ -149,7 +149,7 @@ class Main(QMainWindow, Ui_Main):
     def add_vacina(self):
         self.QtStack.setCurrentIndex(5)
         self.t_cad_vacina.btn_cadastrar.clicked.connect(self.cadastrar_vacina)
-    
+
     def add_laboratorio(self):
         self.QtStack.setCurrentIndex(13)
         self.t_cad_labora.btn_cadastrar.clicked.connect(self.cadastrar_laboratorio)
@@ -202,7 +202,7 @@ class Main(QMainWindow, Ui_Main):
             if self.core.cadastrar_acs(nome, codigo):
                 QMessageBox.information(
                     None, 'Atenção!', 'Inserido com sucesso!')
-            else: 
+            else:
                 QMessageBox.information(
                     None, 'Atenção!', 'Erro ao inserir!')
         else:
@@ -228,14 +228,16 @@ class Main(QMainWindow, Ui_Main):
             dose2 = 0
 
         data1 = self.t_cad_comunitario.data_1.date().toPyDate()
-        vacina1 = self.t_cad_comunitario.vacina_d1.text()
         lote1 = self.t_cad_comunitario.lote_1.text()
         data2 = self.t_cad_comunitario.data_2.date().toPyDate()
-        vacina2 = self.t_cad_comunitario.vacina_d2.text()
         lote2 = self.t_cad_comunitario.lote_2.text()
-        ubs = self.t_cad_comunitario.ubs.text()
+        codido_ubs = self.t_cad_comunitario.codigo_ubs.text()
+        codigo_acs = self.t_cad_comunitario.codigo_acs.text()
 
-        if(data1 != '' and vacina1 != '' and lote1 != '' and lote2 != '' and data2 != '' and vacina2 != '' and ubs != ''):
+        print("CÓDIGO DO ACS:    " + codigo_acs)
+
+
+        if(data1 != '' and lote1 != '' and lote2 != '' and data2 != '' and codido_ubs != '' and codigo_acs != ''):
             pass
             # Nome e código não existe no banco ? Se não, adicionar o nome no banco e código.
         else:
@@ -252,7 +254,7 @@ class Main(QMainWindow, Ui_Main):
         validade = self.t_cad_lote.validade.text()
 
         if(vacina != '' and lote != '' and fabricacao != '' and validade != ''):
-            
+
             if not self.core.validarData(validade):
                 QMessageBox.information(
                     None, 'Atenção!', 'Formato da data validade errada')
@@ -264,7 +266,7 @@ class Main(QMainWindow, Ui_Main):
                 if result == -1:
                     QMessageBox.information(
                         None, 'Atenção!', 'Vacina não encontrado!')
-                    
+
                 elif result:
                     QMessageBox.information(
                         None, 'Atenção!', 'Inserido com sucesso!')
@@ -292,13 +294,13 @@ class Main(QMainWindow, Ui_Main):
                 if result == -1:
                     QMessageBox.information(
                         None, 'Atenção!', 'Laboratorio não encontrado!')
-                    
+
                 elif result:
                     QMessageBox.information(
                         None, 'Atenção!', 'Inserido com sucesso!')
                     self.t_cad_vacina.nome.setText('')
                     self.t_cad_vacina.reforco.setText('')
-                    self.t_cad_vacina.laboratorio.setText('')                    
+                    self.t_cad_vacina.laboratorio.setText('')
                 else:
                     QMessageBox.information(
                         None, 'Atenção!', 'Erro ao inserir!')

@@ -467,28 +467,12 @@ border-radius: 5px;</string>
             <string/>
            </property>
           </widget>
-          <widget class="QLineEdit" name="vacina_d1">
+          <widget class="QLineEdit" name="lote_d1">
            <property name="geometry">
             <rect>
              <x>70</x>
              <y>100</y>
-             <width>131</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Vacina D1</string>
-           </property>
-           <property name="placeholderText">
-            <string>CPF</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lote_d1">
-           <property name="geometry">
-            <rect>
-             <x>210</x>
-             <y>100</y>
-             <width>151</width>
+             <width>291</width>
              <height>25</height>
             </rect>
            </property>
@@ -499,28 +483,12 @@ border-radius: 5px;</string>
             <string>CPF</string>
            </property>
           </widget>
-          <widget class="QLineEdit" name="vacina_d2">
+          <widget class="QLineEdit" name="lote_2">
            <property name="geometry">
             <rect>
              <x>70</x>
              <y>160</y>
-             <width>131</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Vacina D2</string>
-           </property>
-           <property name="placeholderText">
-            <string>CPF</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lote_2">
-           <property name="geometry">
-            <rect>
-             <x>210</x>
-             <y>160</y>
-             <width>151</width>
+             <width>291</width>
              <height>25</height>
             </rect>
            </property>
@@ -531,17 +499,33 @@ border-radius: 5px;</string>
             <string>CPF</string>
            </property>
           </widget>
-          <widget class="QLineEdit" name="ubs">
+          <widget class="QLineEdit" name="codigo_ubs">
            <property name="geometry">
             <rect>
              <x>70</x>
              <y>190</y>
-             <width>291</width>
+             <width>131</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>UBS</string>
+            <string>Código UBS</string>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="ubs_2">
+           <property name="geometry">
+            <rect>
+             <x>210</x>
+             <y>190</y>
+             <width>151</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Código ACS</string>
            </property>
            <property name="placeholderText">
             <string>Nome</string>
