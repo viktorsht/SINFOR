@@ -39,11 +39,11 @@ Colaboradores:
  > Para realizar a instalação o [pyQt5](https://pypi.org/project/PyQt5/) é necessário a instalação do [pip](https://pypi.org/project/pip/)
  1. Instalação do PIP - LINUX
  
- 	~~~ Base Debian
-		sudo  apt-get install python-pip
+ 	~~~ Debian
+	$ sudo  apt-get install python-pip
 	~~~
-	~~~ Base Red Hat/ OpenSUSe
-		sudo  yum install python-pip
+	~~~ Red Hat/ OpenSUSe
+	$ sudo  yum install python-pip
 	~~~
 
 ## Executar o programa:
@@ -51,9 +51,14 @@ Colaboradores:
 1. Clone o repositório em sua máquina utilizando o comando git clone e logo após, execute o arquivo main.py.
 
 	~~~ Git
-	git clone https://github.com/viktorsht/SINFOR.git
- 	~~~
-	~~~ Bash/Prompt
-	python3 main.py
+	$ git clone https://github.com/viktorsht/SINFOR.git
  	~~~
 	
+	~~~ Bash/Prompt
+	$ python3 main.py
+ 	~~~
+## Funcionamento: 
+
+### O programa funciona a base de um banco de dados mySQL e conectado em um código Python.
+
+O usuário ao executar o programa corretamente será apresentado com a tela de login. 
