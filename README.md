@@ -8,7 +8,7 @@ O SINFOR é um sistema, não oficial, que tem como finalidade servir de ajuda ao
 O SINFOR foi criado em python3.9 e sua interface feita com a biblioteca pyQt5. O sistema pode ser usado em Windows, ou superiores, como Linux e Mac.
 
 
-Colaboradores:
+Colaboradores: <br />
 1. [Vitor Santos](https://github.com/viktorsht) <br />
 2. [Wendel Nunes](https://github.com/WendelSantosNunes) <br />
 3. [Humberto Júnior](https://github.com/1bertojunior) <br />
