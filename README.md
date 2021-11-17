@@ -1,15 +1,18 @@
 # SINFOR
 ## Sistema de Vacinação - COVID-19
 
+![tela login](img/tela_login.png)
+<p> Tela de Login </p>
+
 O SINFOR é um sistema, não oficial, que tem como finalidade servir de ajuda aos servidores de saúde para auxiliar na vacinação contra o Covid-19.
 O SINFOR foi criado em python3.9 e sua interface feita com a biblioteca pyQt5. O sistema pode ser usado em Windows, ou superiores, como Linux e Mac.
 
 
 Colaboradores:
-1. [Vitor Santos](https://github.com/viktorsht)
-2. [Wendel Nunes](https://github.com/WendelSantosNunes)
-3. [Humberto Júnior](https://github.com/1bertojunior)
-4. [Eva Luana](https://github.com/evalasilva)
+1. [Vitor Santos](https://github.com/viktorsht) <br />
+2. [Wendel Nunes](https://github.com/WendelSantosNunes) <br />
+3. [Humberto Júnior](https://github.com/1bertojunior) <br />
+4. [Eva Luana](https://github.com/evalasilva) <br />
 
 ### Observações:
 >O sofware foi criado durante a disciplina de Engenharia de Sofware, ministrada no curso de Sistema de Informação na Universidade Federal do Piauí.
@@ -57,8 +60,49 @@ Colaboradores:
 	~~~ Bash/Prompt
 	$ python3 main.py
  	~~~
-## Funcionamento: 
+## Interfaces: 
 
-### O programa funciona a base de um banco de dados mySQL e conectado em um código Python.
+> As telas de interface foram feitas em pyQT5.
+### Tela Princial.
 
-O usuário ao executar o programa corretamente será apresentado com a tela de login. 
+![DASH](img/tela_dash.png)
+<p> Tela principal </p>
+
+### O programa apresenta as seguintes telas de cadastro.
+
+![Cadastro Acs](img/tela_cadastrar_acs.png)
+<p> Cadastro do Acs </p>
+
+![Cadastro comunitário](img/tela_cadastrar_comunitario.png)
+<p> Cadastro do Comunitátio </p>
+
+![Cadastro laboratório](img/tela_cadastrar_laboratorio.png)
+<p> Cadastro do Laboratório </p>
+
+![Cadastro lote](img/tela_cadastrar_lote.png)
+<p> Cadastro do Lote</p>
+
+![Cadastro UBS](img/tela_cadastrar_ubs.png)
+<p> Cadastro do UBS </p>
+
+![Cadastro VACINA](img/tela_cadastrar_vacina.png)
+<p> Cadastro da Vacina </p>
+
+### Telas de cada setor
+
+![comunitário](img/tela_comunitario.png)
+<p> Tela dos Comunitátios </p>
+
+![laboratório](img/tela_laboratorio.png)
+<p> Tela dos Laboratórios </p>
+
+![lote](img/tela_lote.png)
+<p> Tela dos Lotes</p>
+
+![UBS](img/tela_ubs.png)
+<p> Cadastro das UBS </p>
+
+![VACINA](img/tela_vacina.png)
+<p> Tela das Vacinas </p>
+
+
