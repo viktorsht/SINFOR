@@ -81,7 +81,7 @@ Colaboradores: <br />
 ![Cadastro Acs](Img/tela_cadastrar_acs.png)
 <p> Cadastro do Acs </p>
 
-![Cadastro comunitário](Img/tela_cadastrar_comunitario.png)
+![Cadastro comunitário](Img/tela_cadastrar_comunitario.jpeg)
 <p> Cadastro do Comunitátio </p>
 
 ![Cadastro laboratório](Img/tela_cadastrar_laboratorio.png)
