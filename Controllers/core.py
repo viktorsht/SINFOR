@@ -214,13 +214,53 @@ class Core:
         self.db.disconnect()
         return result
 
+    def validar_laboratorio_por_id(self, id = 0):
+        self.db.toConnect()
+        result = None
+
+        query = 'SELECT id FROM laboratorio WHERE id =  ' + id
+        result = self.db.fetchOne(query)
+
+        self.db.disconnect()
+        return result
+
+    def validar_lote_por_id(self, id = 0):
+        self.db.toConnect()
+        result = None
+
+        query = 'SELECT id FROM lote_vacina WHERE id =  ' + id
+        result = self.db.fetchOne(query)
+
+        self.db.disconnect()
+        return result
+
+    def validar_ubs_por_id(self, id = 0):
+        self.db.toConnect()
+        result = None
+
+        query = 'SELECT id FROM ubs WHERE id =  ' + id
+        result = self.db.fetchOne(query)
+
+        self.db.disconnect()
+        return result
+    
+    def validar_acs_por_id(self, id = 0):
+        self.db.toConnect()
+        result = None
+
+        query = 'SELECT id FROM acs WHERE id =  ' + id
+        result = self.db.fetchOne(query)
+
+        self.db.disconnect()
+        return result
+
+
     def cadastrar_vacina(self, nome, reforco, laboratorio):
         self.db.toConnect()
 
         result = None
 
-        query = 'SELECT id FROM laboratorio WHERE id =  ' + laboratorio
-        result = self.db.fetchOne(query)
+        result = self.validar_laboratorio_por_id(laboratorio)
 
         if result:
             query = 'INSERT INTO vacina (nome, reforco, laboratorio) VALUES (%s, %s, %s)'
@@ -242,3 +282,38 @@ class Core:
         self.db.disconnect()
         return result
 
+    def getIdVacinaPeloLote(self, id = 0):
+        self.db.toConnect()
+        result = None
+
+        print(id)
+        
+        query = 'SELECT fk_vacina FROM lote_vacina WHERE id =  ' + id
+        result = self.db.fetchOne(query)[0]
+       
+        self.db.disconnect()
+        return result
+    
+    def cadastrar_comunitario(self, nome, cpf, sus, sd1, dd1, sd2, dd2, acs, ubs, lote1, lote2):
+        self.db.toConnect()
+
+        query = 'SELECT fk_vacina FROM lote_vacina WHERE id =  ' + lote1
+        vacina = self.db.fetchOne(query)[0]
+
+        print(vacina, type(vacina))
+
+        # vacina = 1
+        # print(vacina, type(vacina))
+    
+        # vacina = int(self.getIdVacinaPeloLote(lote1))
+
+        # print(vacina, type(vacina))
+
+        query = 'INSERT INTO comunitario (nome, cpf, num_sus, status_1dose, data_1dose, status_2dose, data_2dose, fk_cod_acs, fk_vacina_tipo, fk_cod_ubs, fk_lote_d1, fk_lote_d2) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+        result = self.db.cursor(query, (nome, cpf, sus, int(sd1), dd1, int(sd2), dd2, acs, vacina, ubs, lote1, lote2) )
+
+
+
+        self.db.disconnect()
+
+        return result

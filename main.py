@@ -1,3 +1,4 @@
+
 import sys
 import os
 
@@ -126,12 +127,10 @@ class Main(QMainWindow, Ui_Main):
 
         self.t_ubs.btn_adicionar.clicked.connect(self.add_ubs)
         self.t_acs.btn_adicionar.clicked.connect(self.add_acs)
-        self.t_comunitario.btn_adicionar.clicked.connect(
-            self.cadastrar_comunitario)
         self.t_lote.btn_adicionar.clicked.connect(self.add_lote)
         self.t_vacina.btn_adicionar.clicked.connect(self.add_vacina)
-        self.t_laboratorio.btn_adicionar.clicked.connect(
-            self.add_laboratorio)
+        self.t_laboratorio.btn_adicionar.clicked.connect(self.add_laboratorio)
+        self.t_comunitario.btn_adicionar.clicked.connect(self.add_comunitario)
         self.logado = ''
 
     def add_ubs(self):
@@ -153,6 +152,10 @@ class Main(QMainWindow, Ui_Main):
     def add_laboratorio(self):
         self.QtStack.setCurrentIndex(13)
         self.t_cad_labora.btn_cadastrar.clicked.connect(self.cadastrar_laboratorio)
+    
+    def add_comunitario(self):
+        self.QtStack.setCurrentIndex(2)
+        self.t_cad_comunitario.btn_cadastrar.clicked.connect(self.cadastrar_comunitario)
 
     def logar(self):
         cpf = self.t_login.cpf.text()
@@ -210,39 +213,127 @@ class Main(QMainWindow, Ui_Main):
                 None, 'Atenção!', 'Campo em branco!!')
 
     def cadastrar_comunitario(self):
-        self.QtStack.setCurrentIndex(2)
+        # self.QtStack.setCurrentIndex(2)
         self.tela(self.t_cad_comunitario)
 
         nome = self.t_cad_comunitario.nome.text()
         cpf = self.t_cad_comunitario.cpf.text()
         n_sus = self.t_cad_comunitario.n_sus.text()
-
-        if(self.t_cad_comunitario.dose_1.text()):
-            dose1 = 1
-        else:
-            dose1 = 0
-
-        if(self.t_cad_comunitario.dose_2.text()):
-            dose2 = 1
-        else:
-            dose2 = 0
-
+        s_d1 = self.t_cad_comunitario.dose_1.isChecked()
         data1 = self.t_cad_comunitario.data_1.date().toPyDate()
-        lote1 = self.t_cad_comunitario.lote_1.text()
+        s_d2 = self.t_cad_comunitario.dose_2.isChecked()
         data2 = self.t_cad_comunitario.data_2.date().toPyDate()
-        lote2 = self.t_cad_comunitario.lote_2.text()
-        codido_ubs = self.t_cad_comunitario.codigo_ubs.text()
         codigo_acs = self.t_cad_comunitario.codigo_acs.text()
+        codido_ubs = self.t_cad_comunitario.codigo_ubs.text()
+        lote1 = self.t_cad_comunitario.lote_1.text()
+        lote2 = self.t_cad_comunitario.lote_2.text()
+        # s_d2 = self.t_cad_comunitario.dose_2.isChecked()
+        # data2 = self.t_cad_comunitario.data_2.date().toPyDate()
+        # lote2 = self.t_cad_comunitario.lote_2.text()
+        # codido_ubs = self.t_cad_comunitario.codigo_ubs.text()
+        # codigo_acs = self.t_cad_comunitario.codigo_acs.text()
 
-        print("CÓDIGO DO ACS:    " + codigo_acs)
+        result  = self.core.cadastrar_comunitario(nome, cpf, n_sus, s_d1, data1, s_d2, data2, codigo_acs, codido_ubs, lote1, lote2)
 
-
-        if(data1 != '' and lote1 != '' and lote2 != '' and data2 != '' and codido_ubs != '' and codigo_acs != ''):
-            pass
-            # Nome e código não existe no banco ? Se não, adicionar o nome no banco e código.
+        if result:
+            nome = self.t_cad_comunitario.nome.setText('')
+            cpf = self.t_cad_comunitario.cpf.setText('')
+            n_sus = self.t_cad_comunitario.n_sus.setText('')
+            # data1 = self.t_cad_comunitario.data_1.date().toPyDate()
+            # lote1 = self.t_cad_comunitario.lote_1.setText('')
+            # data2 = self.t_cad_comunitario.data_2.setText('')
+            # lote2 = self.t_cad_comunitario.lote_2.setText('')
+            # codido_ubs = self.t_cad_comunitario.codigo_ubs.setText('')
+            # codigo_acs = self.t_cad_comunitario.codigo_acs.setText('')
+            QMessageBox.information(
+                None, 'Atenção!', 'Inserido com sucesso!')
         else:
             QMessageBox.information(
-                None, 'Atenção!', 'Campo em branco!!')
+                None, 'Atenção!', 'Erro ao inserir!')
+
+        # if(self.t_cad_comunitario.dose_1.text()):
+        #     dose1 = 1
+        # else:
+        #     dose1 = 0
+
+        # if(self.t_cad_comunitario.dose_2.text()):
+        #     dose2 = 1
+        # else:
+        #     dose2 = 0
+
+        # if(data1 != '' and lote1 != '' and lote2 != '' and data2 != '' and codido_ubs != '' and codigo_acs != ''):
+        #     if s_d1 == True:
+
+        #         if self.core.validar_laboratorio_por_id(lote1):
+        #             if s_d2:
+        #                 if self.core.validar_laboratorio_por_id(lote2):
+        #                     aux = 1
+        #                 else:
+        #                     aux = -1
+
+        #             else:
+        #                 data2 = 'NULL'
+        #                 lote2 = 'NULL'
+        #                 aux = 1
+
+        #             if aux:
+        #                 if self.core.validar_ubs_por_id(codido_ubs):
+        #                     if self.core.validar_acs_por_id(codigo_acs):
+                                
+        #                         result  = self.core.cadastrar_comunitario(
+        #                             nome,
+        #                             cpf,
+        #                             n_sus,
+        #                             codido_ubs,
+        #                             codigo_acs,
+        #                             s_d1,
+        #                             data1,
+        #                             lote1,
+        #                             s_d2,
+        #                             data2,
+        #                             lote2
+        #                         )
+
+        #                         if result:
+        #                             nome = self.t_cad_comunitario.nome.setText('')
+        #                             cpf = self.t_cad_comunitario.cpf.setText('')
+        #                             n_sus = self.t_cad_comunitario.n_sus.setText('')
+        #                             # s_d1 = self.t_cad_comunitario.dose_1.setCheckState(False)
+        #                             data1 = self.t_cad_comunitario.data_1.date().toPyDate()
+        #                             lote1 = self.t_cad_comunitario.lote_1.setText('')
+        #                             # s_d2 = self.t_cad_comunitario.dose_2.isChecked()
+        #                             data2 = self.t_cad_comunitario.data_2.setText('')
+        #                             lote2 = self.t_cad_comunitario.lote_2.setText('')
+        #                             codido_ubs = self.t_cad_comunitario.codigo_ubs.setText('')
+        #                             codigo_acs = self.t_cad_comunitario.codigo_acs.setText('')
+        #                             QMessageBox.information(
+        #                                 None, 'Atenção!', 'Inserido com sucesso!')
+        #                         else:
+        #                             QMessageBox.information(
+        #                                 None, 'Atenção!', 'Erro ao inserir!')
+
+        #                     else:
+        #                         QMessageBox.information(
+        #                             None, 'Atenção!', 'Codigo ACS invalido')
+        #                 else:
+        #                    QMessageBox.information(
+        #                     None, 'Atenção!', 'Codigo UBS invalido')
+        #                 QMessageBox.information(
+        #                     None, 'Atenção!', 'Lote 2 não encontrado!')
+        #         else:
+        #             QMessageBox.information(
+        #                 None, 'Atenção!', 'Lote 1 não encontrado!')
+        #     else:
+        #         QMessageBox.information(
+        #             None, 'Atenção!', 'Pelo menos uma dose precisa estar marcada!')
+
+        #     # pass
+        #     # Nome e código não existe no banco ? Se não, adicionar o nome no banco e código.
+            
+
+        # else:
+        #     QMessageBox.information(
+        #         None, 'Atenção!', 'Campo em branco!!')
 
     def cadastrar_lote(self):
         # self.QtStack.setCurrentIndex(3)
