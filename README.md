@@ -1,7 +1,7 @@
 # SINFOR
 ## Sistema de Vacinação - COVID-19
 
-![tela login](img/tela_login.png)
+![tela login](Img/tela_login.png)
 <p> Tela de Login </p>
 
 O SINFOR é um sistema, não oficial, que tem como finalidade servir de ajuda aos servidores de saúde para auxiliar na vacinação contra o Covid-19.
@@ -31,10 +31,10 @@ Colaboradores: <br />
 
 ### Instalação Python3 
 1. Windows: [Download](https://www.python.org/downloads/)
-2.Linux Debian e derivados
+2.Linux Debian e derivados.
 
 	~~~ Bash
-	$ sudo apt-get install python3
+		$ sudo apt-get install python3
 	~~~
 
 ### Instalação pyQt5 
@@ -43,10 +43,10 @@ Colaboradores: <br />
  1. Instalação do PIP - LINUX
  
  	~~~ Debian
-	$ sudo  apt-get install python-pip
+		$ sudo  apt-get install python-pip
 	~~~
 	~~~ Red Hat/ OpenSUSe
-	$ sudo  yum install python-pip
+		$ sudo  yum install python-pip
 	~~~
 
 ## Executar o programa:
@@ -54,55 +54,63 @@ Colaboradores: <br />
 1. Clone o repositório em sua máquina utilizando o comando git clone e logo após, execute o arquivo main.py.
 
 	~~~ Git
-	$ git clone https://github.com/viktorsht/SINFOR.git
+		$ git clone https://github.com/viktorsht/SINFOR.git
  	~~~
 	
 	~~~ Bash/Prompt
-	$ python3 main.py
+		$ python3 main.py
  	~~~
+2. Executável Windowns: Para não ter que fazer a instalações, disponibilizamos um executável .exe. Saiba como encontra-lo abaixo:
+
+> Encontre o arquivo main.exe e dê dois cliques.
+ 
+~~~executável
+	C:\SINFOR\Build\exe.win-amd64-3.9\main.exe
+~~~
+
 ## Interfaces: 
 
 > As telas de interface foram feitas em pyQT5.
 ### Tela Princial.
 
-![DASH](img/tela_dash.png)
+![DASH](Img/tela_dash.png)
 <p> Tela principal </p>
 
 ### O programa apresenta as seguintes telas de cadastro.
 
-![Cadastro Acs](img/tela_cadastrar_acs.png)
+![Cadastro Acs](Img/tela_cadastrar_acs.png)
 <p> Cadastro do Acs </p>
 
-![Cadastro comunitário](img/tela_cadastrar_comunitario.png)
+![Cadastro comunitário](Img/tela_cadastrar_comunitario.png)
 <p> Cadastro do Comunitátio </p>
 
-![Cadastro laboratório](img/tela_cadastrar_laboratorio.png)
+![Cadastro laboratório](Img/tela_cadastrar_laboratorio.png)
 <p> Cadastro do Laboratório </p>
 
-![Cadastro lote](img/tela_cadastrar_lote.png)
+![Cadastro lote](Img/tela_cadastrar_lote.png)
 <p> Cadastro do Lote</p>
 
-![Cadastro UBS](img/tela_cadastrar_ubs.png)
+![Cadastro UBS](Img/tela_cadastrar_ubs.png)
 <p> Cadastro do UBS </p>
 
-![Cadastro VACINA](img/tela_cadastrar_vacina.png)
+![Cadastro VACINA](Img/tela_cadastrar_vacina.png)
 <p> Cadastro da Vacina </p>
 
 ### Telas de cada setor
 
-![comunitário](img/tela_comunitario.png)
+![comunitário](Img/tela_comunitario.png)
 <p> Tela dos Comunitátios </p>
 
-![laboratório](img/tela_laboratorio.png)
+![laboratório](Img/tela_laboratorio.png)
 <p> Tela dos Laboratórios </p>
 
-![lote](img/tela_lote.png)
+![lote](Img/tela_lote.png)
 <p> Tela dos Lotes</p>
 
-![UBS](img/tela_ubs.png)
+![UBS](Img/tela_ubs.png)
 <p> Cadastro das UBS </p>
 
-![VACINA](img/tela_vacina.png)
+![VACINA](Img/tela_vacina.png)
 <p> Tela das Vacinas </p>
 
 
