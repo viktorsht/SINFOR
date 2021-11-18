@@ -60,7 +60,7 @@ Colaboradores: <br />
 	~~~ Bash/Prompt
 		$ python3 main.py
  	~~~
-2. Executável Windowns: Para não ter que fazer a instalações, disponibilizamos um executável .exe. Saiba como encontra-lo abaixo:
+2. Executável Windows: Para não ter que fazer a instalação, disponibilizamos um executável .exe. Saiba como encontrá-lo abaixo: abaixo:
 
 > Encontre o arquivo main.exe e dê dois cliques.
  
