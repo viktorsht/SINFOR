@@ -19,28 +19,30 @@ def MD5hash(arg):
         result = str.hexdigest()
     return result
 
+
 class Core:
     def __init__(self) -> None:
         self.db = DB(_host, _dbname, _username, _password)
         self.result = []
 
-    def validarData(self, data = ''):
-        result =  None
+    def validarData(self, data=''):
+        result = None
         try:
             result = datetime.strptime(data, '%Y-%m-%d').date()
             # result = True
         except:
             result = False
-        
+
         return result
 
-    def login(self,email, password):
+    def login(self, email, password):
         aux = None
 
         password = MD5hash(password)
 
         self.db.toConnect()
-        query = "SELECT id FROM usuario WHERE email = '" + email + "' AND senha = '" + password + "'"
+        query = "SELECT id FROM usuario WHERE email = '" + \
+            email + "' AND senha = '" + password + "'"
         result = self.db.fetchOne(query)
 
         if result == None:
@@ -48,12 +50,12 @@ class Core:
         else:
             self.id = result[0]
             print(self.id)
-            aux =  True
+            aux = True
 
         self.db.disconnect()
 
         return aux
-    
+
     def getListUBS(self):
         aux = None
         self.result = []
@@ -66,12 +68,11 @@ class Core:
             aux = False
         else:
             self.result = result
-            aux =  True
+            aux = True
 
         self.db.disconnect()
 
         return aux
-
 
     def getListACS(self):
         aux = None
@@ -85,7 +86,7 @@ class Core:
             aux = False
         else:
             self.result = result
-            aux =  True
+            aux = True
 
         self.db.disconnect()
 
@@ -106,7 +107,7 @@ class Core:
             aux = False
         else:
             self.result = result
-            aux =  True
+            aux = True
 
         self.db.disconnect()
 
@@ -126,13 +127,11 @@ class Core:
             aux = False
         else:
             self.result = result
-            aux =  True
-
+            aux = True
 
         self.db.disconnect()
 
         return aux
-
 
     def getListLaboratory(self):
         aux = None
@@ -146,8 +145,7 @@ class Core:
             aux = False
         else:
             self.result = result
-            aux =  True
-
+            aux = True
 
         self.db.disconnect()
 
@@ -169,19 +167,17 @@ class Core:
             aux = False
         else:
             self.result = result
-            aux =  True
-
+            aux = True
 
         self.db.disconnect()
 
         return aux
 
-
     # CADASTRAR
 
     def cadastrar_ubs(self, cod, nome):
         self.db.toConnect()
-    
+
         query = 'INSERT INTO ubs (cod_ubs, nome) VALUES (%s, %s)'
         result = self.db.cursor(query, (cod, nome))
 
@@ -190,7 +186,7 @@ class Core:
 
     def cadastrar_acs(self, cod, nome):
         self.db.toConnect()
-    
+
         query = 'INSERT INTO acs (cod_ma, nome) VALUES (%s, %s)'
         result = self.db.cursor(query, (cod, nome))
 
@@ -207,14 +203,15 @@ class Core:
 
         if result:
             query = 'INSERT INTO lote_vacina (fk_vacina, lote, fabricacao, validade) VALUES (%s, %s, %s,%s)'
-            result = self.db.cursor(query, (fk_vacina, lote, fabricacao, validade))
+            result = self.db.cursor(
+                query, (fk_vacina, lote, fabricacao, validade))
         else:
-            result = -1 # LOTE NÃO EXISTE
+            result = -1  # LOTE NÃO EXISTE
 
         self.db.disconnect()
         return result
 
-    def validar_laboratorio_por_id(self, id = 0):
+    def validar_laboratorio_por_id(self, id=0):
         self.db.toConnect()
         result = None
 
@@ -224,7 +221,7 @@ class Core:
         self.db.disconnect()
         return result
 
-    def validar_lote_por_id(self, id = 0):
+    def validar_lote_por_id(self, id=0):
         self.db.toConnect()
         result = None
 
@@ -234,7 +231,7 @@ class Core:
         self.db.disconnect()
         return result
 
-    def validar_ubs_por_id(self, id = 0):
+    def validar_ubs_por_id(self, id=0):
         self.db.toConnect()
         result = None
 
@@ -243,8 +240,8 @@ class Core:
 
         self.db.disconnect()
         return result
-    
-    def validar_acs_por_id(self, id = 0):
+
+    def validar_acs_por_id(self, id=0):
         self.db.toConnect()
         result = None
 
@@ -253,7 +250,6 @@ class Core:
 
         self.db.disconnect()
         return result
-
 
     def cadastrar_vacina(self, nome, reforco, laboratorio):
         self.db.toConnect()
@@ -266,34 +262,33 @@ class Core:
             query = 'INSERT INTO vacina (nome, reforco, laboratorio) VALUES (%s, %s, %s)'
             result = self.db.cursor(query, (nome, reforco, laboratorio))
         else:
-            result = -1 # LABORATORIO NÃO EXISTE
+            result = -1  # LABORATORIO NÃO EXISTE
 
         self.db.disconnect()
         return result
-
 
     def cadastrar_laboratorio(self, nome):
         self.db.toConnect()
         result = None
-        
+
         query = 'INSERT INTO laboratorio (id, nome) VALUES (%s,%s)'
         result = self.db.cursor(query, ('NULL', nome))
-       
+
         self.db.disconnect()
         return result
 
-    def getIdVacinaPeloLote(self, id = 0):
+    def getIdVacinaPeloLote(self, id=0):
         self.db.toConnect()
         result = None
 
         print(id)
-        
+
         query = 'SELECT fk_vacina FROM lote_vacina WHERE id =  ' + id
         result = self.db.fetchOne(query)[0]
-       
+
         self.db.disconnect()
         return result
-    
+
     def cadastrar_comunitario(self, nome, cpf, sus, sd1, dd1, sd2, dd2, acs, ubs, lote1, lote2):
         self.db.toConnect()
 
@@ -302,18 +297,28 @@ class Core:
 
         print(vacina, type(vacina))
 
-        # vacina = 1
-        # print(vacina, type(vacina))
-    
-        # vacina = int(self.getIdVacinaPeloLote(lote1))
-
-        # print(vacina, type(vacina))
-
         query = 'INSERT INTO comunitario (nome, cpf, num_sus, status_1dose, data_1dose, status_2dose, data_2dose, fk_cod_acs, fk_vacina_tipo, fk_cod_ubs, fk_lote_d1, fk_lote_d2) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
-        result = self.db.cursor(query, (nome, cpf, sus, int(sd1), dd1, int(sd2), dd2, acs, vacina, ubs, lote1, lote2) )
-
-
+        result = self.db.cursor(query, (nome, cpf, sus, int(
+            sd1), dd1, int(sd2), dd2, acs, vacina, ubs, lote1, lote2))
 
         self.db.disconnect()
 
+        return result
+
+    def qtd_dose(self, arg=0):
+
+        self.db.toConnect()
+        result = None
+
+        if arg == 1:
+            dose = 'status_1dose'
+        elif arg == 2:
+            dose = 'status_2dose'
+        else:
+            return 0
+
+        query = 'SELECT COUNT(id) FROM comunitario WHERE ' + dose + ' = 1'
+        result = self.db.fetchOne(query)[0]
+
+        self.db.disconnect()
         return result

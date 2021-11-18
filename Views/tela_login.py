@@ -19,7 +19,7 @@ class Tela_login(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(130, 90, 361, 51))
+        self.label.setGeometry(QtCore.QRect(150, 90, 361, 51))
         font = QtGui.QFont()
         font.setPointSize(24)
         self.label.setFont(font)
@@ -32,18 +32,19 @@ class Tela_login(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.cpf = QtWidgets.QLineEdit(self.frame)
-        self.cpf.setGeometry(QtCore.QRect(50, 40, 281, 31))
-        self.cpf.setStyleSheet("border: 1px solid #000;\n"
-                               "border-radius: 5px;")
-        self.cpf.setObjectName("cpf")
+        self.email = QtWidgets.QLineEdit(self.frame)
+        self.email.setGeometry(QtCore.QRect(50, 30, 281, 31))
+        self.email.setStyleSheet("border: 1px solid #000;\n"
+                                 "border-radius: 5px;")
+        self.email.setObjectName("email")
         self.senha = QtWidgets.QLineEdit(self.frame)
-        self.senha.setGeometry(QtCore.QRect(50, 90, 281, 31))
+        self.senha.setGeometry(QtCore.QRect(50, 70, 281, 31))
         self.senha.setStyleSheet("border: 1px solid #000;\n"
                                  "border-radius: 5px;")
+        self.senha.setEchoMode(QtWidgets.QLineEdit.Password)
         self.senha.setObjectName("senha")
         self.btn_login = QtWidgets.QPushButton(self.frame)
-        self.btn_login.setGeometry(QtCore.QRect(50, 140, 281, 31))
+        self.btn_login.setGeometry(QtCore.QRect(50, 110, 281, 31))
         self.btn_login.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_login.setStyleSheet("QPushButton{\n"
                                      "    background-color: #5B8DDE;\n"
@@ -55,6 +56,19 @@ class Tela_login(object):
                                      "}\n"
                                      "")
         self.btn_login.setObjectName("btn_login")
+        self.btn_sair = QtWidgets.QPushButton(self.frame)
+        self.btn_sair.setGeometry(QtCore.QRect(50, 150, 281, 31))
+        self.btn_sair.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_sair.setStyleSheet("QPushButton{\n"
+                                    "    background-color: RED;\n"
+                                    "   color: #FFF;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover{\n"
+                                    "    background-color: #1D52A8;\n"
+                                    "}\n"
+                                    "")
+        self.btn_sair.setObjectName("btn_sair")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -68,9 +82,10 @@ class Tela_login(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate(
             "MainWindow", "Sinfor: Vacinas - Covid-19"))
-        self.cpf.setPlaceholderText(_translate("MainWindow", "CPF"))
+        self.email.setPlaceholderText(_translate("MainWindow", "E-mail"))
         self.senha.setPlaceholderText(_translate("MainWindow", "Senha"))
         self.btn_login.setText(_translate("MainWindow", "Login"))
+        self.btn_sair.setText(_translate("MainWindow", "Sair"))
 
 
 if __name__ == "__main__":

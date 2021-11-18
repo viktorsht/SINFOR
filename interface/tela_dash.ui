@@ -341,9 +341,9 @@ color: #fff;</string>
          <widget class="QFrame" name="frame_6">
           <property name="geometry">
            <rect>
-            <x>30</x>
-            <y>100</y>
-            <width>131</width>
+            <x>170</x>
+            <y>40</y>
+            <width>191</width>
             <height>80</height>
            </rect>
           </property>
@@ -362,8 +362,8 @@ border-radius: 5px;</string>
             <rect>
              <x>20</x>
              <y>30</y>
-             <width>91</width>
-             <height>17</height>
+             <width>151</width>
+             <height>20</height>
             </rect>
            </property>
            <property name="font">
@@ -375,15 +375,15 @@ border-radius: 5px;</string>
             <string notr="true">color: #FFF;</string>
            </property>
            <property name="text">
-            <string>15 Vacinas</string>
+            <string>Total imunizados</string>
            </property>
           </widget>
          </widget>
          <widget class="QFrame" name="frame_7">
           <property name="geometry">
            <rect>
-            <x>180</x>
-            <y>100</y>
+            <x>80</x>
+            <y>150</y>
             <width>141</width>
             <height>80</height>
            </rect>
@@ -401,10 +401,10 @@ border-radius: 5px;</string>
           <widget class="QLabel" name="label_12">
            <property name="geometry">
             <rect>
-             <x>10</x>
-             <y>30</y>
-             <width>131</width>
-             <height>17</height>
+             <x>30</x>
+             <y>10</y>
+             <width>71</width>
+             <height>21</height>
             </rect>
            </property>
            <property name="font">
@@ -416,15 +416,36 @@ border-radius: 5px;</string>
             <string notr="true">color: #FFF;</string>
            </property>
            <property name="text">
-            <string>10 Imunizados</string>
+            <string>1ª DOSE</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="qtd_d1">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>40</y>
+             <width>71</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;</string>
+           </property>
+           <property name="text">
+            <string>1</string>
            </property>
           </widget>
          </widget>
          <widget class="QFrame" name="frame_8">
           <property name="geometry">
            <rect>
-            <x>340</x>
-            <y>100</y>
+            <x>290</x>
+            <y>150</y>
             <width>141</width>
             <height>80</height>
            </rect>
@@ -442,10 +463,10 @@ border-radius: 5px;</string>
           <widget class="QLabel" name="label_13">
            <property name="geometry">
             <rect>
-             <x>20</x>
-             <y>31</y>
-             <width>111</width>
-             <height>16</height>
+             <x>40</x>
+             <y>10</y>
+             <width>61</width>
+             <height>20</height>
             </rect>
            </property>
            <property name="font">
@@ -457,7 +478,28 @@ border-radius: 5px;</string>
             <string notr="true">color: #FFF;</string>
            </property>
            <property name="text">
-            <string>2 Agendados</string>
+            <string>2ª DOSE</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="qtd_d2">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>40</y>
+             <width>71</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #FFF;</string>
+           </property>
+           <property name="text">
+            <string>1</string>
            </property>
           </widget>
          </widget>

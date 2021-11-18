@@ -134,6 +134,10 @@ class Main(QMainWindow, Ui_Main):
             self.add_laboratorio)
         self.logado = ''
 
+        # dash
+        self.t_dash.qtd_d1.setText(str(self.core.qtd_dose(1)))
+        self.t_dash.qtd_d2.setText("    " + str(self.core.qtd_dose(2)))
+
     def add_ubs(self):
         self.QtStack.setCurrentIndex(4)
         self.tela(self.t_cad_ubs)
@@ -156,17 +160,17 @@ class Main(QMainWindow, Ui_Main):
 
     def add_laboratorio(self):
         self.QtStack.setCurrentIndex(13)
-        self.tela(self.t_cad_labora)
+        self.tela(self.t_cad_vacina)
         self.t_cad_labora.btn_cadastrar.clicked.connect(
             self.cadastrar_laboratorio)
 
     def logar(self):
-        cpf = self.t_login.cpf.text()
+        email = self.t_login.email.text()
         senha = self.t_login.senha.text()
 
-        if(cpf != '' and senha != ''):
-            if self.core.login(cpf, senha):
-                self.t_login.cpf.setText('')
+        if(email != '' and senha != ''):
+            if self.core.login(email, senha):
+                self.t_login.email.setText('')
                 self.t_login.senha.setText('')
                 # result =''
                 # query = 'SELECT nivel_de_acesso FROM usu
@@ -197,7 +201,6 @@ class Main(QMainWindow, Ui_Main):
                 None, 'Atenção!', 'Preencha todos os campos!!')
 
     def cadastrar_acs(self):
-        # self.QtStack.setCurrentIndex(1)
         nome = self.t_cad_acs.nome.text()
         codigo = self.t_cad_acs.codigo.text()
 
